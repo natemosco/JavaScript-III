@@ -27,7 +27,20 @@ myRing.describe();  // here the object being referred to is myRing because it is
 
 
 // 3.New Keyword Binding:
-
+var Box = function(height, width, depth, bow, color, weight){
+    this.height = height;
+    this.width = width;
+    this.depth = depth;
+    this.bow = bow;
+    this.color = color;
+    this.weight = weight;
+    this.productSpecs = function(){
+        return `Your box will be ${this.height} tall by ${this.width} wide and ${this.depth} long with ${this.bow} bow
+        and be a shiny ${this.color} color weighing about ${this.weight} when empty.`;
+    }
+};
+var giftBox = new Box("2 inches", "2 inches", "6 inches", "no", "gold", "56g." ); 
+console.log(giftBox.productSpecs());  
 
 
 // 4.Explicit Binding: can use .call  .apply  .bind  
