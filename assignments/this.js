@@ -17,17 +17,30 @@ var myRing= {
     design: "Aztec",
     accent: "Black Onyx",
     mainStone: "Larimar",
-    size: "US 9.5"
-    material: "Silver"
+    size: "US 9.5",
+    material: "Silver",
     describe: function(){
         console.log(`My ${this.design} style ${this.mainStone} and ${this.accent} ring is made of ${this.material} and is a size ${this.size} men's ring.`)
     }
 }
 myRing.describe();  // here the object being referred to is myRing because it is left of the dot notation in this example.
 
+
 // 3.New Keyword Binding:
 
 
 
-// 4.Explicit Binding:
+// 4.Explicit Binding: can use .call  .apply  .bind  
+//.call invokes the functions strung together and passes in any arguments one by one
+//.apply also invokes any arguments passed in but allows arrays to be passed in as an agument and the array gets parsed and passed forward to fill any parameters available.
+// .bind creates a new function (not invoked) and passes in arguments one by one just like .call
 
+var sayFavFood = function(){                           //function outside of obj
+    console.log(`My favorite food is ${this.favFood}`);
+}
+const sarah={                                           //obj named Sarah
+    name:'Sarah',
+    age:'24',
+    favFood:'Chocolate Chip Cookies!!!!'
+}
+sayFavFood.call(sarah);                //this basically forces the this keyword on function line 36 to look at obj Sarah and check to see if there is a key called favFood and if so return the value pair which in this case is 'Chocolate Chip Cookies'
